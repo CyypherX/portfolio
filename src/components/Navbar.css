@@ -1,0 +1,211 @@
+.navbar {
+  width: 100%;
+  height: 74px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 30px;
+
+  position: sticky;
+  top: 0;
+
+  z-index: 100;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  background: rgba(9, 9, 11, 0.82);
+
+  backdrop-filter: blur(18px);
+}
+
+
+/* =========================================
+   TEXT LOGO — LEFT
+========================================= */
+
+.nav-logo {
+  color: #f5f5f5;
+
+  text-decoration: none;
+
+  font-size: 18px;
+  font-weight: 800;
+
+  letter-spacing: -0.6px;
+
+  transition: opacity 0.25s ease;
+}
+
+.nav-logo span {
+  color: #a855f7;
+}
+
+.nav-logo:hover {
+  opacity: 0.8;
+}
+
+
+/* =========================================
+   NAV LINKS — CENTER
+========================================= */
+
+.nav-links {
+  position: absolute;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 30px;
+}
+
+.nav-links a {
+  position: relative;
+
+  color: #696971;
+
+  text-decoration: none;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 1.2px;
+
+  transition: color 0.25s ease;
+}
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 1px;
+
+  background: #a855f7;
+
+  transition: width 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================
+   CYYPHERX LOGO — RIGHT
+   Larger + blended into navbar
+========================================= */
+
+.nav-brand-logo {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  flex-shrink: 0;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.nav-brand-logo img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+
+  /*
+    The supplied logo has a dark/black background.
+    Screen blending makes that dark background visually
+    merge into the navbar while keeping the white/blue logo.
+  */
+  mix-blend-mode: screen;
+
+  opacity: 0.96;
+
+  filter:
+    drop-shadow(0 0 8px rgba(37, 99, 235, 0.10))
+    drop-shadow(0 0 5px rgba(168, 85, 247, 0.06));
+
+  transition:
+    transform 0.25s ease,
+    opacity 0.25s ease;
+}
+
+.nav-brand-logo:hover {
+  transform: scale(1.06);
+}
+
+.nav-brand-logo:hover img {
+  opacity: 1;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-brand-logo {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .navbar {
+    height: 68px;
+
+    padding: 0 16px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-logo {
+    font-size: 17px;
+  }
+
+  .nav-brand-logo {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 10px;
+  }
+}

@@ -1,0 +1,258 @@
+/* =========================================
+   GLOBAL PORTFOLIO LAYOUT
+========================================= */
+
+.portfolio {
+  min-height: 100vh;
+
+  position: relative;
+
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 0%,
+      rgba(124, 58, 237, 0.055),
+      transparent 30%
+    ),
+    #09090b;
+}
+
+.portfolio main {
+  position: relative;
+
+  width: 100%;
+}
+
+
+/* =========================================
+   UNIVERSAL SECTION
+========================================= */
+
+.section {
+  width: 100%;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   EXACT TECHNICAL SQUARE GRID
+   Used across every portfolio page
+========================================= */
+
+.portfolio main > section:not(.hero)::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.022) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.022) 1px,
+      transparent 1px
+    );
+
+  background-size: 48px 48px;
+
+  opacity: 0.9;
+}
+
+
+/* =========================================
+   VERY SUBTLE GRID FADE
+   Keeps the texture premium instead of
+   looking like graph paper
+========================================= */
+
+.portfolio main > section:not(.hero)::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      transparent 0%,
+      rgba(9, 9, 11, 0.03) 55%,
+      rgba(9, 9, 11, 0.22) 100%
+    );
+}
+
+
+/* =========================================
+   KEEP SECTION CONTENT ABOVE GRID
+========================================= */
+
+.portfolio main > section:not(.hero) > * {
+  position: relative;
+
+  z-index: 1;
+}
+
+
+/* =========================================
+   COMMON SECTION CONTAINER
+========================================= */
+
+.section-inner {
+  width: min(1400px, 88%);
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   SECTION LABEL
+========================================= */
+
+.section-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #65656e;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.section-label span {
+  color: #a855f7;
+}
+
+.section-line {
+  width: 35px;
+
+  height: 1px;
+
+  background: #34343b;
+}
+
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.section-heading {
+  margin-top: 24px;
+
+  color: #f4f4f5;
+
+  font-size: clamp(42px, 5vw, 72px);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+
+  font-weight: 600;
+}
+
+.section-heading span {
+  color: #a855f7;
+}
+
+
+/* =========================================
+   SECTION DESCRIPTION
+========================================= */
+
+.section-description {
+  max-width: 620px;
+
+  margin-top: 22px;
+
+  color: #777780;
+
+  font-size: 14px;
+
+  line-height: 1.85;
+}
+
+
+/* =========================================
+   COMMON GLASS CARD
+========================================= */
+
+.glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.075);
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.2);
+
+  backdrop-filter: blur(12px);
+}
+
+
+/* =========================================
+   PROJECTS
+   Projects already had its own grid.
+   Hide it so it doesn't create a double grid.
+========================================= */
+
+.projects-grid {
+  display: none !important;
+}
+
+
+/* =========================================
+   SECTIONS SHOULD BLEND INTO ONE SYSTEM
+========================================= */
+
+.about-section,
+.skills-section,
+.projects-section,
+.lab-section,
+.interests-section,
+.contact-section {
+  position: relative;
+
+  background-color: transparent;
+}
+
+
+/* =========================================
+   MOBILE GRID
+========================================= */
+
+@media (max-width: 600px) {
+
+  .portfolio main > section:not(.hero)::before {
+    background-size: 44px 44px;
+
+    opacity: 0.82;
+  }
+
+}

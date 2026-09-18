@@ -1,0 +1,889 @@
+/* =========================================
+   LAB SECTION
+========================================= */
+
+.lab-section {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 760px;
+
+  padding: 150px 0 120px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 80% 40%,
+      rgba(124, 58, 237, 0.055),
+      transparent 32%
+    ),
+    #09090b;
+}
+
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.lab-container {
+  position: relative;
+
+  z-index: 2;
+
+  width: min(1420px, 90%);
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   SECTION LABEL
+========================================= */
+
+.lab-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  color: #686870;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 1.8px;
+}
+
+.lab-label span {
+  color: #a855f7;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 12px;
+}
+
+.lab-label i {
+  width: 35px;
+
+  height: 1px;
+
+  display: block;
+
+  background: #37373f;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.lab-content {
+  margin-top: 70px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(320px, 0.72fr)
+    minmax(600px, 1.28fr);
+
+  align-items: center;
+
+  gap: 70px;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.lab-intro h2 {
+  color: #f2f2f4;
+
+  font-size: clamp(55px, 6vw, 82px);
+
+  font-weight: 600;
+
+  line-height: 1.12;
+
+  padding-bottom: 8px;
+
+  letter-spacing: -4.5px;
+}
+
+.lab-intro h2 span {
+  color: #a855f7;
+}
+
+.lab-intro p {
+  max-width: 500px;
+
+  margin-top: 28px;
+
+  color: #777780;
+
+  font-size: 13px;
+
+  line-height: 1.85;
+}
+
+
+/* =========================================
+   QUICK COMMANDS
+========================================= */
+
+.lab-try {
+  margin-top: 30px;
+
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+}
+
+.lab-try > span {
+  margin-right: 7px;
+
+  color: #4f4f57;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 1px;
+}
+
+.lab-try button {
+  height: 31px;
+
+  padding: 0 11px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 6px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: #777780;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 8px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.lab-try button:hover {
+  color: #d4b2ff;
+
+  border-color: rgba(168, 85, 247, 0.4);
+
+  background: rgba(168, 85, 247, 0.08);
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================
+   TERMINAL
+========================================= */
+
+.lab-terminal {
+  position: relative;
+
+  min-height: 380px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(255, 255, 255, 0.008)
+    ),
+    #0d0d10;
+
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.35);
+
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.lab-terminal:hover {
+  border-color: rgba(168, 85, 247, 0.22);
+
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.4),
+    0 0 60px rgba(168, 85, 247, 0.035);
+}
+
+
+/* =========================================
+   TERMINAL HEADER
+========================================= */
+
+.lab-terminal-header {
+  height: 44px;
+
+  display: flex;
+
+  align-items: center;
+
+  padding: 0 17px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.065);
+
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.lab-terminal-dots {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+.lab-terminal-dots span {
+  width: 6px;
+
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #47474f;
+}
+
+.lab-terminal-title {
+  margin-left: 18px;
+
+  color: #55555e;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.4px;
+}
+
+.lab-terminal-status {
+  margin-left: auto;
+
+  color: #43d9a2;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 7px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+
+/* =========================================
+   TERMINAL BODY
+========================================= */
+
+.lab-body {
+  position: relative;
+
+  min-height: 291px;
+
+  padding: 28px;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    );
+
+  background-size: 100% 27px;
+}
+
+.lab-welcome {
+  color: #686875;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 9px;
+}
+
+.lab-terminal-space {
+  height: 27px;
+}
+
+
+/* =========================================
+   INPUT LINE
+========================================= */
+
+.lab-input-line {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lab-prompt {
+  flex-shrink: 0;
+
+  color: #a855f7;
+
+  font-family: "Space Mono", monospace;
+  font-size: 10px;
+  line-height: 30px;
+}
+
+/* The editor is the single visual text layer. */
+.lab-code-editor {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 30px;
+}
+
+/* Highlighted text shown to the visitor */
+.lab-code-highlight {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-width: 0;
+  height: 30px;
+
+  overflow: hidden;
+
+  white-space: pre;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 30px;
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Real input handles keyboard interaction but does NOT draw text. */
+.lab-code-input {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 30px;
+
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  caret-color: transparent !important;
+
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  line-height: 30px;
+
+  z-index: 2;
+
+  /* The real input is only a keyboard/interaction layer.
+     Never let the browser render its text or placeholder. */
+  opacity: 0 !important;
+}
+
+.lab-code-input::placeholder {
+  color: transparent !important;
+}
+
+.lab-code-input::selection {
+  background: rgba(168, 85, 247, 0.2);
+}
+
+.lab-code-placeholder {
+  color: #38383f;
+}
+
+.lab-code-command {
+  font-weight: 700;
+}
+
+.lab-code-command.cyan { color: #67e8f9; }
+.lab-code-command.green { color: #86efac; }
+.lab-code-command.purple { color: #c084fc; }
+.lab-code-command.blue { color: #60a5fa; }
+.lab-code-command.yellow { color: #fde68a; }
+.lab-code-command.red { color: #f87171; }
+.lab-code-command.magenta { color: #f0abfc; }
+.lab-code-command.unknown { color: #e4e4e7; }
+
+.lab-code-argument { color: #e4e4e7; }
+.lab-code-flag { color: #67e8f9; }
+.lab-code-string { color: #facc15; }
+
+/* One custom caret, positioned immediately after the highlighted text. */
+.lab-code-caret {
+  flex: 0 0 2px;
+  width: 2px;
+  height: 16px;
+  margin-left: 2px;
+
+  background: #a855f7;
+
+  box-shadow:
+    0 0 5px rgba(168, 85, 247, 0.9),
+    0 0 12px rgba(168, 85, 247, 0.35);
+
+  animation: labCaretBlink 0.8s steps(1, end) infinite;
+}
+
+@keyframes labCaretBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* =========================================
+   OUTPUT
+========================================= */
+
+.lab-output {
+  margin-top: 18px;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 9px;
+
+  max-width: 90%;
+
+  color: #8e8e98;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 9px;
+
+  line-height: 1.7;
+}
+
+.lab-output-arrow {
+  flex-shrink: 0;
+
+  color: #43d9a2;
+}
+
+
+/* =========================================
+   INSTRUCTION
+========================================= */
+
+.lab-instruction {
+  margin-top: 34px;
+
+  color: #595963;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.2px;
+}
+
+
+/* =========================================
+   TERMINAL FOOTER
+========================================= */
+
+.lab-terminal-footer {
+  height: 43px;
+
+  padding: 0 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+
+  color: #44444d;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 7px;
+
+  letter-spacing: 1px;
+}
+
+.lab-terminal-footer div {
+  flex: 1;
+
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* =========================================
+   SECTION FOOTER
+========================================= */
+
+.lab-footer {
+  margin-top: 65px;
+
+  display: grid;
+
+  grid-template-columns:
+    30px
+    1fr
+    auto
+    30px;
+
+  align-items: center;
+
+  gap: 15px;
+
+  color: #4d4d55;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 1px;
+}
+
+.lab-footer > span:first-child {
+  color: #a855f7;
+}
+
+.lab-footer > div {
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.lab-footer p {
+  text-align: center;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .lab-content {
+    grid-template-columns: 1fr;
+
+    gap: 50px;
+  }
+
+  .lab-intro {
+    max-width: 700px;
+  }
+
+  .lab-terminal {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .lab-section {
+    min-height: auto;
+
+    padding: 110px 0 90px;
+  }
+
+  .lab-container {
+    width: 92%;
+  }
+
+  .lab-content {
+    margin-top: 50px;
+
+    gap: 38px;
+  }
+
+  .lab-intro h2 {
+    font-size: 53px;
+
+    letter-spacing: -3.5px;
+
+    line-height: 1.12;
+
+    padding-bottom: 6px;
+  }
+
+  .lab-intro p {
+    margin-top: 22px;
+
+    font-size: 11px;
+  }
+
+  .lab-try {
+    margin-top: 25px;
+  }
+
+  .lab-try button {
+    font-size: 8px;
+  }
+
+  .lab-terminal {
+    min-height: 350px;
+
+    border-radius: 12px;
+  }
+
+  .lab-terminal-header {
+    height: 42px;
+
+    padding: 0 14px;
+  }
+
+  .lab-body {
+    min-height: 265px;
+
+    padding: 22px 17px;
+  }
+
+  .lab-welcome {
+    font-size: 8px;
+  }
+
+  .lab-prompt {
+    font-size: 9px;
+  }
+
+  .lab-body input {
+    font-size: 10px;
+  }
+
+  .lab-output {
+    max-width: 100%;
+
+    font-size: 8px;
+  }
+
+  .lab-instruction {
+    font-size: 7px;
+
+    margin-top: 28px;
+  }
+
+  .lab-terminal-footer {
+    padding: 0 14px;
+
+    font-size: 6px;
+  }
+
+  .lab-footer {
+    grid-template-columns:
+      25px
+      1fr
+      25px;
+
+    gap: 10px;
+  }
+
+  .lab-footer p {
+    display: none;
+  }
+
+}
+
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+  .lab-intro h2 {
+    font-size: 47px;
+  }
+
+  .lab-body {
+    padding-left: 14px;
+
+    padding-right: 14px;
+  }
+
+  .lab-prompt {
+    font-size: 8px;
+  }
+
+  .lab-body input {
+    font-size: 9px;
+  }
+
+}
+
+
+
+/* =========================================
+   FINAL INPUT / SINGLE VISUAL TEXT LAYER
+========================================= */
+
+.lab-input-line {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lab-prompt {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  color: #43d9a2;
+}
+
+.lab-code-editor {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 30px;
+  overflow: hidden;
+}
+
+.lab-code-highlight {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  min-width: 100%;
+  height: 30px;
+  overflow: hidden;
+  white-space: pre;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 30px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.lab-code-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  caret-color: transparent !important;
+  font-family: "Space Mono", monospace;
+  font-size: 11px;
+  line-height: 30px;
+  z-index: 2;
+
+  /* The real input is only a keyboard/interaction layer.
+     Never let the browser render its text or placeholder. */
+  opacity: 0 !important;
+}
+
+.lab-code-input::placeholder {
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.lab-code-input::selection {
+  background: rgba(168, 85, 247, 0.2);
+}
+
+.lab-code-placeholder { color: #38383f; }
+.lab-code-command { font-weight: 700; }
+.lab-code-command.cyan { color: #67e8f9; }
+.lab-code-command.green { color: #86efac; }
+.lab-code-command.purple { color: #c084fc; }
+.lab-code-command.blue { color: #60a5fa; }
+.lab-code-command.yellow { color: #fde68a; }
+.lab-code-command.magenta { color: #f0abfc; }
+.lab-code-flag { color: #67e8f9; }
+.lab-code-string { color: #facc15; }
+
+.lab-code-caret {
+  flex: 0 0 2px;
+  width: 2px;
+  height: 16px;
+  margin-left: 2px;
+  background: #a855f7;
+  box-shadow: 0 0 5px rgba(168, 85, 247, 0.9), 0 0 12px rgba(168, 85, 247, 0.35);
+  animation: labCaretBlink 0.8s steps(1, end) infinite;
+}
+
+@keyframes labCaretBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+@media (max-width: 600px) {
+  .lab-code-highlight,
+  .lab-code-input {
+    font-size: 10px;
+    line-height: 30px;
+  }
+  .lab-code-caret { height: 14px; }
+}
+
+@media (max-width: 380px) {
+  .lab-code-highlight,
+  .lab-code-input { font-size: 9px; }
+  .lab-code-caret { height: 13px; }
+}
+
+
+/* =========================================================
+   DEFINITIVE TERMINAL INPUT FIX
+   The real input must never paint text. The highlighted
+   layer above it is the only visible command text.
+========================================================= */
+.lab-section .lab-terminal .lab-body .lab-code-editor > .lab-code-input {
+  opacity: 0 !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+  caret-color: transparent !important;
+  background: transparent !important;
+}
+
+.lab-section .lab-terminal .lab-body .lab-code-editor > .lab-code-input::placeholder {
+  opacity: 0 !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+}

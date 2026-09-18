@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+
+/* =========================================
+   GLOBAL RESET
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+
+  background: #09090b;
+
+  color: #f4f4f5;
+
+  font-family: "Inter", sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+
+  text-rendering: optimizeLegibility;
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+button,
+a,
+input,
+textarea {
+  font-family: inherit;
+}
+
+
+/* =========================================
+   SELECTION
+========================================= */
+
+::selection {
+  background: rgba(168, 85, 247, 0.35);
+
+  color: white;
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #29292f;
+
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a43;
+}
+
+
+/* =========================================
+   ROOT
+========================================= */
+
+#root {
+  width: 100%;
+
+  min-height: 100vh;
+}
+
+
+/* =========================================
+   PORTFOLIO
+========================================= */
+
+.portfolio {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 75% 0%,
+      rgba(124, 58, 237, 0.055),
+      transparent 30%
+    ),
+    #09090b;
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease;
+}
+
+
+/* =========================================
+   LIGHT THEME FOUNDATION
+========================================= */
+
+[data-theme="light"] body {
+  background: #f4f4f5;
+
+  color: #18181b;
+}
+
+[data-theme="light"] ::selection {
+  background: rgba(168, 85, 247, 0.2);
+
+  color: #18181b;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: #f4f4f5;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: #c7c7ce;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: #aaaab3;
+}
+
+[data-theme="light"] .portfolio {
+  background:
+    radial-gradient(
+      circle at 75% 0%,
+      rgba(124, 58, 237, 0.075),
+      transparent 30%
+    ),
+    #f4f4f5;
+}
+
+
+/* =========================================
+   SMOOTH THEME TRANSITION
+========================================= */
+
+.portfolio,
+.portfolio *,
+.portfolio *::before,
+.portfolio *::after {
+  transition-property:
+    background-color,
+    border-color,
+    color,
+    box-shadow;
+  transition-duration: 0.35s;
+  transition-timing-function: ease;
+}

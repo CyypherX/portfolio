@@ -1,0 +1,32 @@
+/* =========================================
+   PORTFOLIO THEME SYSTEM
+========================================= */
+
+:root {
+  --theme-bg: #09090b;
+  --theme-surface: #111114;
+  --theme-surface-soft: #151518;
+
+  --theme-text: #f4f4f5;
+  --theme-heading: #f4f4f5;
+
+  --theme-muted: #777780;
+  --theme-muted-dark: #55555e;
+
+  --theme-border: rgba(255, 255, 255, 0.075);
+  --theme-border-soft: rgba(255, 255, 255, 0.05);
+
+  --theme-grid: rgba(255, 255, 255, 0.022);
+
+  --theme-purple: #a855f7;
+  --theme-blue: #60a5fa;
+  --theme-green: #4ade80;
+
+  --theme-text-gradient:
+    linear-gradient(
+      110deg,
+      #f4f4f5 0%,
+      #d8b4fe 50%,
+      #67e8f9 100%
+    );
+}

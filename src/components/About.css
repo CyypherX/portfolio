@@ -1,0 +1,469 @@
+.about-section {
+  padding: 150px 0 120px;
+  overflow: hidden;
+}
+
+/* =========================
+   ABOUT GRID
+========================= */
+
+.about-grid {
+  margin-top: 70px;
+
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 70px;
+
+  align-items: start;
+}
+
+/* =========================
+   ABOUT COPY
+========================= */
+
+.about-copy {
+  max-width: 520px;
+}
+
+.about-copy p {
+  color: #85858e;
+  font-size: 14px;
+  line-height: 1.9;
+
+  margin-bottom: 24px;
+}
+
+.about-copy p:first-child {
+  color: #b8b8c0;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* =========================
+   PROFILE CARD
+========================= */
+
+.profile-card {
+  width: 100%;
+  padding: 28px 26px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.075);
+  border-radius: 14px;
+
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+  border-color: rgba(168, 85, 247, 0.22);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.25),
+    0 0 50px rgba(168, 85, 247, 0.035);
+
+  transform: translateY(-3px);
+}
+
+/* =========================
+   PROFILE HEADER
+========================= */
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  color: #686870;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.profile-active {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #55d6a0;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.profile-active span {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: #55d6a0;
+
+  box-shadow:
+    0 0 8px rgba(85, 214, 160, 0.7);
+}
+
+/* =========================
+   PROFILE ROWS
+========================= */
+
+.profile-list {
+  width: 100%;
+}
+
+.profile-row {
+  min-height: 49px;
+
+  display: flex;
+  align-items: center;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.profile-row:last-child {
+  border-bottom: none;
+}
+
+.profile-key {
+  min-width: 150px;
+
+  color: #5e5e67;
+
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+
+  flex-shrink: 0;
+}
+
+.profile-value {
+  flex: 1;
+
+  color: #b9b9c1;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  line-height: 1.5;
+}
+
+.profile-status {
+  color: #55d6a0;
+}
+
+/* =========================
+   TRAITS
+========================= */
+
+.about-traits {
+  margin-top: 80px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+.trait-card {
+  position: relative;
+
+  min-height: 190px;
+
+  padding: 26px;
+
+  overflow: hidden;
+
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.trait-card::before {
+  content: "";
+
+  position: absolute;
+
+  width: 120px;
+  height: 120px;
+
+  top: -60px;
+  right: -60px;
+
+  border-radius: 50%;
+
+  background: rgba(168, 85, 247, 0.06);
+
+  filter: blur(20px);
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
+}
+
+.trait-card:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(168, 85, 247, 0.18);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(168, 85, 247, 0.045),
+      rgba(255, 255, 255, 0.012)
+    );
+}
+
+.trait-card:hover::before {
+  opacity: 1;
+}
+
+.trait-number {
+  display: block;
+
+  margin-bottom: 34px;
+
+  color: #a855f7;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.trait-card h3 {
+  margin-bottom: 12px;
+
+  color: #e5e5e8;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.trait-card p {
+  max-width: 300px;
+
+  color: #707079;
+
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+  }
+
+  .about-copy {
+    max-width: 680px;
+  }
+
+  .profile-card {
+    max-width: 760px;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-section {
+    padding: 110px 0 90px;
+  }
+
+  .about-grid {
+    margin-top: 50px;
+
+    gap: 45px;
+  }
+
+  .profile-card {
+    padding: 22px 18px;
+  }
+
+  .profile-row {
+    min-height: 58px;
+
+    align-items: center;
+  }
+
+  .profile-key {
+    min-width: 120px;
+
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .profile-value {
+    font-size: 10px;
+
+    text-align: right;
+  }
+
+  .about-traits {
+    margin-top: 55px;
+
+    grid-template-columns: 1fr;
+
+    gap: 14px;
+  }
+
+  .trait-card {
+    min-height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-row {
+    display: grid;
+    grid-template-columns: 105px 1fr;
+
+    gap: 12px;
+
+    padding: 13px 0;
+  }
+
+  .profile-key {
+    min-width: 0;
+  }
+
+  .profile-value {
+    text-align: left;
+
+    word-break: normal;
+  }
+
+  .profile-header {
+    padding-bottom: 17px;
+  }
+}
+
+
+/* =========================================================
+   LOCAL THEME — ABOUT SECTION
+   Keeps About typography readable in both themes.
+   Theme switch is controlled by [data-theme="light"].
+========================================================= */
+
+/* DARK MODE — explicit local defaults */
+.about-section {
+  color: #f4f4f5;
+}
+
+.about-section .section-label,
+.about-section .profile-header,
+.about-section .profile-key {
+  color: #686870;
+}
+
+.about-section .section-heading,
+.about-section .about-copy p:first-child,
+.about-section .trait-card h3 {
+  color: #e5e5e8;
+}
+
+.about-section .section-description,
+.about-section .about-copy p,
+.about-section .trait-card p {
+  color: #85858e;
+}
+
+.about-section .profile-value {
+  color: #b9b9c1;
+}
+
+/* LIGHT MODE */
+[data-theme="light"] .about-section {
+  color: #10213f;
+}
+
+[data-theme="light"] .about-section .section-label,
+[data-theme="light"] .about-section .profile-header,
+[data-theme="light"] .about-section .profile-key {
+  color: #52617a !important;
+}
+
+[data-theme="light"] .about-section .section-heading {
+  color: #10213f !important;
+}
+
+[data-theme="light"] .about-section .section-heading span {
+  color: #1d4ed8 !important;
+}
+
+[data-theme="light"] .about-section .section-description,
+[data-theme="light"] .about-section .about-copy p,
+[data-theme="light"] .about-section .trait-card p {
+  color: #52617a !important;
+}
+
+[data-theme="light"] .about-section .about-copy p:first-child {
+  color: #253b5d !important;
+}
+
+[data-theme="light"] .about-section .profile-card,
+[data-theme="light"] .about-section .trait-card {
+  background: rgba(255, 255, 255, 0.72) !important;
+  border-color: rgba(11, 25, 51, 0.10) !important;
+  box-shadow: 0 20px 60px rgba(11, 25, 51, 0.07);
+}
+
+[data-theme="light"] .about-section .profile-header {
+  border-bottom-color: rgba(11, 25, 51, 0.10) !important;
+}
+
+[data-theme="light"] .about-section .profile-row {
+  border-bottom-color: rgba(11, 25, 51, 0.08) !important;
+}
+
+[data-theme="light"] .about-section .profile-value {
+  color: #253b5d !important;
+}
+
+[data-theme="light"] .about-section .profile-status,
+[data-theme="light"] .about-section .profile-active {
+  color: #15803d !important;
+}
+
+[data-theme="light"] .about-section .profile-active span {
+  background: #15803d !important;
+  box-shadow: 0 0 8px rgba(21, 128, 61, 0.35);
+}
+
+[data-theme="light"] .about-section .trait-card h3 {
+  color: #10213f !important;
+}
+
+[data-theme="light"] .about-section .trait-number {
+  color: #5b21b6 !important;
+}
+
+[data-theme="light"] .about-section .trait-card:hover {
+  background: rgba(91, 33, 182, 0.045) !important;
+  border-color: rgba(91, 33, 182, 0.16) !important;
+}
+
+/* STATUS VALUE — GREEN */
+.about-section .profile-status {
+  color: #55d6a0 !important;
+}

@@ -1,0 +1,437 @@
+/* =========================================================
+   PORTFOLIO MOTION SYSTEM
+   Visual-only interaction layer: no layout/content changes.
+========================================================= */
+
+.portfolio.motion-enhanced {
+  --mouse-x: 50%;
+  --mouse-y: 15%;
+  --scroll-progress: 0;
+  --scroll-y: 0px;
+}
+
+/* -----------------------------------------
+   Ambient pointer spotlight
+----------------------------------------- */
+
+.portfolio.motion-enhanced::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      520px circle at var(--mouse-x) var(--mouse-y),
+      rgba(168, 85, 247, 0.075),
+      transparent 58%
+    );
+  opacity: 0.9;
+  mix-blend-mode: screen;
+}
+
+/* -----------------------------------------
+   Scroll progress line
+----------------------------------------- */
+
+.navbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  transform-origin: left center;
+  transform: scaleX(var(--scroll-progress, 0));
+  background: linear-gradient(
+    90deg,
+    rgba(168, 85, 247, 0.05),
+    rgba(168, 85, 247, 0.9),
+    rgba(103, 232, 249, 0.65)
+  );
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.24);
+  pointer-events: none;
+  transition: transform 0.08s linear;
+}
+
+/* -----------------------------------------
+   Active nav state
+----------------------------------------- */
+
+.nav-links a.is-current {
+  color: #f5f5f5;
+}
+
+.nav-links a.is-current::after {
+  width: 100%;
+  background: linear-gradient(90deg, #a855f7, #67e8f9);
+}
+
+/* -----------------------------------------
+   Scroll reveal
+----------------------------------------- */
+
+.motion-ready .motion-section .motion-item {
+  opacity: 0;
+  filter: blur(7px);
+  transition:
+    opacity 0.82s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.82s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--motion-delay, 0ms);
+  will-change: opacity, filter;
+}
+
+.motion-ready .motion-section.motion-visible .motion-item {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.motion-ready .hero .hero-left > *,
+.motion-ready .hero .hero-right,
+.motion-ready .hero .hero-footer {
+  opacity: 0;
+}
+
+.motion-ready .hero .hero-left > :not(.hero-name),
+.motion-ready .hero .hero-right,
+.motion-ready .hero .hero-footer {
+  animation: hero-enter 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.motion-ready .hero .hero-name {
+  animation:
+    hero-enter 0.95s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    nameGradient 8s ease-in-out infinite;
+}
+
+.motion-ready .hero .hero-left > :nth-child(1) { animation-delay: 0.08s; }
+.motion-ready .hero .hero-left > :nth-child(2) { animation-delay: 0.16s, 0s; }
+.motion-ready .hero .hero-left > :nth-child(3) { animation-delay: 0.24s; }
+.motion-ready .hero .hero-left > :nth-child(4) { animation-delay: 0.32s; }
+.motion-ready .hero .hero-right { animation-delay: 0.2s; }
+.motion-ready .hero .hero-footer { animation-delay: 0.48s; }
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* -----------------------------------------
+   Surface interaction marker
+----------------------------------------- */
+
+.motion-surface {
+  --surface-x: 50%;
+  --surface-y: 50%;
+}
+
+.motion-surface.surface-active {
+  filter: brightness(1.012);
+}
+
+/* -----------------------------------------
+   Buttons / cards tactile hover polish
+----------------------------------------- */
+
+.primary-button,
+.secondary-button,
+.project-button,
+.contact-card,
+.more-projects-card,
+.skill-row {
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+.contact-card:hover .contact-card-icon {
+  transform: translateY(-2px) rotate(-3deg);
+}
+
+.contact-card:hover .contact-card-arrow {
+  transform: translate3d(4px, -4px, 0);
+}
+
+.contact-card-icon,
+.contact-card-arrow {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.25s ease;
+}
+
+.interest-card:hover .interest-plus {
+  transform: rotate(90deg) scale(1.06);
+}
+
+.interest-plus {
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* -----------------------------------------
+   Ripple
+----------------------------------------- */
+
+.ripple-host {
+  position: relative;
+  overflow: hidden;
+}
+
+.motion-ripple {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.22);
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple-out 0.62s ease-out forwards;
+  z-index: 8;
+}
+
+@keyframes ripple-out {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(18);
+  }
+}
+
+/* -----------------------------------------
+   Hero depth / code editor choreography
+----------------------------------------- */
+
+.code-window {
+  --hero-rx: 0deg;
+  --hero-ry: 0deg;
+  transform-style: preserve-3d;
+  animation: codeDepthFloat 6s ease-in-out infinite;
+  will-change: transform;
+  transition: box-shadow 0.35s ease;
+}
+
+@keyframes codeDepthFloat {
+  0%,
+  100% {
+    transform:
+      perspective(1200px)
+      rotateX(var(--hero-rx))
+      rotateY(var(--hero-ry))
+      translateY(0);
+  }
+  50% {
+    transform:
+      perspective(1200px)
+      rotateX(var(--hero-rx))
+      rotateY(var(--hero-ry))
+      translateY(-6px);
+  }
+}
+
+.code-window:hover {
+  box-shadow:
+    0 34px 100px rgba(0, 0, 0, 0.34),
+    0 0 80px rgba(168, 85, 247, 0.06);
+}
+
+.motion-ready .code-line {
+  animation: code-line-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.motion-ready .code-line:nth-child(1) { animation-delay: 0.34s; }
+.motion-ready .code-line:nth-child(2) { animation-delay: 0.39s; }
+.motion-ready .code-line:nth-child(3) { animation-delay: 0.44s; }
+.motion-ready .code-line:nth-child(4) { animation-delay: 0.49s; }
+.motion-ready .code-line:nth-child(5) { animation-delay: 0.54s; }
+.motion-ready .code-line:nth-child(6) { animation-delay: 0.59s; }
+.motion-ready .code-line:nth-child(7) { animation-delay: 0.64s; }
+.motion-ready .code-line:nth-child(8) { animation-delay: 0.69s; }
+.motion-ready .code-line:nth-child(9) { animation-delay: 0.74s; }
+.motion-ready .code-line:nth-child(10) { animation-delay: 0.79s; }
+.motion-ready .code-line:nth-child(11) { animation-delay: 0.84s; }
+
+@keyframes code-line-in {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* -----------------------------------------
+   Ambient status / cursor details
+----------------------------------------- */
+
+.status-dot,
+.availability > span,
+.contact-live-dot,
+.profile-active span {
+  animation: status-pulse 2s ease-in-out infinite;
+}
+
+@keyframes status-pulse {
+  0%, 100% { opacity: 0.68; transform: scale(0.92); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+.scroll-arrow {
+  animation: scroll-bob 1.8s ease-in-out infinite;
+}
+
+@keyframes scroll-bob {
+  0%, 100% { transform: translateY(0); opacity: 0.65; }
+  50% { transform: translateY(4px); opacity: 1; }
+}
+
+/* -----------------------------------------
+   Skills preview motion
+----------------------------------------- */
+
+.skill-card-frame {
+  isolation: isolate;
+}
+
+.skill-card-frame::after {
+  animation-duration: 4.2s;
+}
+
+.skill-row.active .skill-number {
+  text-shadow: 0 0 14px rgba(168, 85, 247, 0.3);
+}
+
+/* -----------------------------------------
+   Project / interest imagery
+----------------------------------------- */
+
+.project-artwork img,
+.interest-image {
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s ease;
+}
+
+.project-card:hover .project-artwork img,
+.interest-card:hover .interest-image {
+  transform: scale(1.035);
+  filter: saturate(1.04) contrast(1.015);
+}
+
+/* -----------------------------------------
+   Lab terminal polish
+----------------------------------------- */
+
+.lab-terminal:hover {
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.3),
+    0 0 65px rgba(168, 85, 247, 0.055);
+}
+
+/* -----------------------------------------
+   Custom cursor (desktop only)
+----------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+  body.motion-ready .portfolio.motion-enhanced,
+  body.motion-ready .portfolio.motion-enhanced * {
+    cursor: none !important;
+  }
+}
+
+.motion-cursor,
+.motion-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.motion-cursor {
+  width: 32px;
+  height: 32px;
+  margin: -16px 0 0 -16px;
+  border: 1px solid rgba(168, 85, 247, 0.62);
+  border-radius: 50%;
+  opacity: 0.8;
+  transition:
+    width 0.25s ease,
+    height 0.25s ease,
+    margin 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    opacity 0.25s ease;
+  mix-blend-mode: screen;
+}
+
+.motion-cursor-dot {
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.75);
+}
+
+.cursor-hovering .motion-cursor {
+  width: 48px;
+  height: 48px;
+  margin: -24px 0 0 -24px;
+  border-color: rgba(103, 232, 249, 0.78);
+  background: rgba(168, 85, 247, 0.06);
+  opacity: 1;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .portfolio.motion-enhanced::before,
+  .motion-cursor,
+  .motion-cursor-dot {
+    display: none;
+  }
+}
+
+/* -----------------------------------------
+   Living technical grid
+----------------------------------------- */
+
+.motion-enhanced main > section:not(.hero)::before {
+  animation: grid-drift 24s linear infinite;
+}
+
+@keyframes grid-drift {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 48px 48px, 48px 48px; }
+}
+
+/* -----------------------------------------
+   Reduced motion / accessibility
+----------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  .motion-ready .motion-section .motion-item,
+  .motion-ready .hero .hero-left > *,
+  .motion-ready .hero .hero-right,
+  .motion-ready .hero .hero-footer,
+  .motion-ready .code-line {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .status-dot,
+  .availability > span,
+  .contact-live-dot,
+  .profile-active span,
+  .scroll-arrow {
+    animation: none !important;
+  }
+}
