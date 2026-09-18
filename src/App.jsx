@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import "./Theme.css";
+import "./theme.css";
 
 import Navbar from "./components/Navbar";
 import MotionEffects from "./components/MotionEffects";
